@@ -2,7 +2,7 @@
 
 Instantly suspend processes to bypass kernel driver protections.
 
-Some programs communicate with protection kernel drivers after startup to prevent tampering. A common approach is for a kernel driver to register a callback, ensuring that other programs cannot obtain the correct process handle using `OpenProcess`. This simple tool addresses this by either creating the process in a suspended state or suspending it immediately upon creation, preventing it from communicating with the driver. This allows a handle to be obtained before the process becomes protected.
+Some programs (e.g., games) communicate with protection kernel drivers (e.g., anti-cheat systems) after startup to prevent tampering. A common approach is for a kernel driver to register a callback, ensuring that other programs cannot obtain the correct process handle using `OpenProcess`. This simple tool addresses this by either creating the process in a suspended state or suspending it immediately upon creation, preventing it from communicating with the driver. This allows a handle to be obtained before the process becomes protected.
 
 > [!IMPORTANT]
 > It is important to note that some kernel drivers may still block access after the process is resumed. However, for certain programs, the opened handle remains valid and continues to allow memory read/write operations even after the process is resumed.
